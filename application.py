@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 import sys, os
 
 
+# 封装的Flask的全局变量，包括app，数据库等
 class Application(Flask):
     def __init__(self, import_name, template_folder=None, static_folder=None, root_path=None):
         super(Application, self).__init__(import_name, template_folder=template_folder, static_folder=static_folder,
@@ -29,7 +30,7 @@ class Application(Flask):
         super(Application, self).add_url_rule(rule, endpoint=endpoint, view_func=view_func, **options)
 
 
-# 获取根目录路径
+# 获取项目根目录路径
 os.chdir(sys.path[0])
 root_path = os.path.abspath(os.path.join(os.getcwd(), "."))
 

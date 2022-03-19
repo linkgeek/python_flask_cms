@@ -6,3 +6,4 @@ config/pro_setting.py
 config/test_setting.py
 /__pycache__
 /.idea
+**/*.pyc

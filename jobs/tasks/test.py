@@ -16,7 +16,7 @@ class JobTask(BaseJob):
 
     def run(self, params):
         news_params = {
-            "uid": 1,
+            "uid": 2,
             "title": "定制化 Flask 框架 V2.0",
             "content": "新功能更多~~"
         }

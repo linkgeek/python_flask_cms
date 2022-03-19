@@ -59,3 +59,5 @@ https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient，下载对应版本的w
    http://127.0.0.1:8889  前台
 
    http://127.0.0.1:8889/home 后台
+   
+3. 执行测试Job：python manage_job.py runjob -m test
