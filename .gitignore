@@ -1,0 +1,8 @@
+.DS_Store
+config/__init__.py
+config/local_setting.py
+config/hsh_setting.py
+config/pro_setting.py
+config/test_setting.py
+/__pycache__
+/.idea
