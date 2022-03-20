@@ -3,6 +3,7 @@
 from application import app
 from flask import request, redirect, g, make_response
 import re
+import json
 
 from common.components.helper.UtilHelper import UtilHelper
 from common.models.rbac.User import (User)
@@ -23,6 +24,7 @@ Home后台授权拦截器，一般做用户登录判断
 def before_request():
     ignore_check_login_urls = app.config['IGNORE_CHECK_LOGIN_URLS']
     path = request.path
+
     # 如果是静态文件就不要查询用户信息了
     pattern = re.compile('%s' % "|".join(ignore_check_login_urls))
     if pattern.match(path) or "/home" not in path:
@@ -52,6 +54,9 @@ def before_request():
         return response
 
     g.menus = MenuServiceService.getMenu()
+    # app.logger.info(json.dumps(g.menus))
+    # exit(0)
+
     AppLogService.addAccessLog(user_info)
     return
 

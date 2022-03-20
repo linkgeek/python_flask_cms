@@ -7,3 +7,5 @@ config/test_setting.py
 /__pycache__
 /.idea
 **/*.pyc
+**/__init__.py
+/web/__pycache__

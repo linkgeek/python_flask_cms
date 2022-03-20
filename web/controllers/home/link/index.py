@@ -37,8 +37,10 @@ def link_index():
         'kw': kw
     }
 
+    # 操作权限
     set_flag = RBACService.checkPageRelatePrivilege("set")
     ops_flag = RBACService.checkPageRelatePrivilege("ops")
+
     return UtilHelper.renderView("home/link/index.html", {
         "list": list,
         "pages": pages,
@@ -49,6 +51,7 @@ def link_index():
     })
 
 
+# 添加/修改操作
 @route_home_link.route("/set", methods=["POST", "GET"])
 def link_set():
     if UtilHelper.isGet():
@@ -90,6 +93,7 @@ def link_set():
     return UtilHelper.renderSucJSON()
 
 
+# 删除/恢复
 @route_home_link.route("/ops", methods=["POST"])
 def link_ops():
     req = request.values

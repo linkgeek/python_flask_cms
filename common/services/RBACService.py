@@ -26,7 +26,7 @@ class RBACService(BaseService):
         return url in RBACService.getRolePrivilege()
 
     '''
-    返回页面相关链接权限判断
+    返回页面相关操作权限判断
     例如 当前页面是 link/index
     你想判断 link/set 权限，直接传递 set 参数就行了
     '''

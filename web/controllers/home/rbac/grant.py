@@ -20,8 +20,6 @@ route_home_grant = Blueprint('home_grant_page', __name__)
 def grant_index():
     req = request.values
     page = int(req.get("p", 1))
-    # print(page)
-    # exit()
 
     query = Action.query
     page_params = {

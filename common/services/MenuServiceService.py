@@ -7,7 +7,7 @@ from common.services.RBACService import RBACService
 # 菜单相关服务
 class MenuServiceService(BaseService):
 
-    # 获取用户有权限的菜单
+    # 菜单权限标记
     @staticmethod
     def getMenu():
         menus = MenuServiceService.definedMenu()
@@ -22,12 +22,13 @@ class MenuServiceService(BaseService):
                 if hasattr(_sub_item, "hidden") and _sub_item['hidden']:
                     tmp_counter -= 1
                     continue
+                # 判断用户菜单权限
                 if not RBACService.checkPrivilege(prefix + _sub_item['url']):
-                    menus[_key]['sub'][_sub_key]['hidden'] = True
+                    menus[_key]["sub"][_sub_key]["hidden"] = True
                     tmp_counter -= 1
 
             if tmp_counter <= 0:
-                menus[_key]['hidden'] = True
+                menus[_key]["hidden"] = True
         return menus
 
     # 默认所有菜单
@@ -55,7 +56,7 @@ class MenuServiceService(BaseService):
                     {"title": "员工列表", "url": "/rbac/staff/index"},
                     {"title": "部门列表", "url": "/rbac/dept/index"},
                     {"title": "权限分配", "url": "/rbac/grant/assign"},
-                    {"title": "权限管理", "url": "/rbac/grant/index"},
+                    {"title": "权限管理", "url": "/rbac/grant/index"}
                 ]
             },
             "log": {
